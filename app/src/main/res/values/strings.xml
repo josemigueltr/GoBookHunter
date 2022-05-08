@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GoBookHunter</string>
+
+    <!-- MainMenuActivity -->
+    <string name="iniciar_busqueda">Iniciar búsqueda</string>
+    <string name="mis_recompensas">Mis recompensas</string>
+    <string name="usuario">Usuario</string>
 </resources>
