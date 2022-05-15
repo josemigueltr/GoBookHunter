@@ -7,7 +7,9 @@
         <entry key="app/src/main/res/drawable/bg_pattern.xml" value="0.2685" />
         <entry key="app/src/main/res/drawable/custom_button.xml" value="0.2355" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/oval_header.xml" value="0.187" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
       </map>
     </option>
