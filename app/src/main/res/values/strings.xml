@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">GoBookHunter</string>
-
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="aplication_splash_logo">Aplication splash logo</string>
+    <string name="str_btn_comenzar">Comenzar</string>
     <!-- MainMenuActivity -->
     <string name="iniciar_busqueda">Iniciar búsqueda</string>
     <string name="mis_recompensas">Mis recompensas</string>
