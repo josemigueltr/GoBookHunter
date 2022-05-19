@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
     </style>
     <style name="Theme.GoBookHunter.Fullscreen" parent="Theme.GoBookHunter">
         <item name="android:actionBarStyle">@style/Widget.Theme.GoBookHunter.ActionBar.Fullscreen
