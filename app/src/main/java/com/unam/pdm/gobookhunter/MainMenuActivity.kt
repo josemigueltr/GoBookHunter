@@ -10,6 +10,7 @@ import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions
 import com.unam.pdm.gobookhunter.databinding.ActivityMainBinding
+import com.unam.pdm.gobookhunter.utilities.QrScanner
 
 
 class MainMenuActivity: AppCompatActivity()  {
@@ -21,23 +22,16 @@ class MainMenuActivity: AppCompatActivity()  {
         setContentView(R.layout.activity_main_menu);
         val recorrido= findViewById<ImageButton>(R.id.imageButton)
 
+        val qrScanner = QrScanner.getInstance(this)
+
         recorrido.setOnClickListener{
-            barcodeLauncher.launch(ScanOptions())
+            val options = ScanOptions()
+            options.setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES)
+            options.setPrompt("Scan a barcode")
+
+            options.setBeepEnabled(false)
+            options.setBarcodeImageEnabled(true)
+            qrScanner.scann(options)
         }
-
     }
-
-    private val barcodeLauncher: ActivityResultLauncher<ScanOptions> =
-        registerForActivityResult<ScanOptions, ScanIntentResult>(ScanContract(),
-            ActivityResultCallback { result: ScanIntentResult ->
-                if (result.contents == null) {
-                    Toast.makeText(this@MainMenuActivity, "Cancelled", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(
-                        this@MainMenuActivity,
-                        "Scanned: " + result.contents,
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            })
 }
