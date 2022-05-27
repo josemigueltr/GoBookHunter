@@ -28,7 +28,6 @@ class MainMenuActivity: AppCompatActivity()  {
             val options = ScanOptions()
             options.setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES)
             options.setPrompt("Scan a barcode")
-
             options.setBeepEnabled(false)
             options.setBarcodeImageEnabled(true)
             qrScanner.scann(options)
