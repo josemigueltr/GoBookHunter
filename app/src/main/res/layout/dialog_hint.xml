@@ -64,9 +64,9 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
         app:layout_constraintEnd_toEndOf="@+id/CardBackground"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="@+id/CardBackground"
         app:layout_constraintTop_toTopOf="@+id/CardBackground"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.063" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

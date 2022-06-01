@@ -2,6 +2,7 @@ package com.unam.pdm.gobookhunter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import com.unam.pdm.gobookhunter.utilities.DataPersistence
 
@@ -16,5 +17,9 @@ class RewardsActivity : AppCompatActivity() {
         val score = Integer.parseInt(persistence.read(persistence.SCORE))
         findViewById<TextView>(R.id.score)
             .setText("Puntuación ${score}")
+
+        findViewById<Button>(R.id.btn_back).setOnClickListener {
+            finish()
+        }
     }
 }
