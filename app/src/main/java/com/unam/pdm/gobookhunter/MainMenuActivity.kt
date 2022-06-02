@@ -1,5 +1,6 @@
 package com.unam.pdm.gobookhunter
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.Toast
@@ -31,6 +32,11 @@ class MainMenuActivity: AppCompatActivity()  {
             options.setBeepEnabled(false)
             options.setBarcodeImageEnabled(true)
             qrScanner.scann(options)
+        }
+
+        findViewById<ImageButton>(R.id.btn_rewards).setOnClickListener {
+            val intent = Intent(this, RewardsActivity::class.java)
+            startActivity(intent)
         }
     }
 }

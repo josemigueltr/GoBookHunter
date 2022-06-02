@@ -11,6 +11,16 @@ import com.unam.pdm.gobookhunter.dialogs.HintDialog
 
 class QrScanner(activity: ComponentActivity) {
 
+    val MATEMATICAS = "matematicas"
+    val BIOLOGIA = "biologia"
+    val FISICA = "fisica"
+    val COMPUTACION = "computacion"
+    val HEMEROTECA = "hemeroteca"
+
+    val SOTANO = "sotano"
+
+    val HINTS = listOf(MATEMATICAS, BIOLOGIA, FISICA, COMPUTACION, HEMEROTECA, SOTANO)
+
     private val barcodeLauncher: ActivityResultLauncher<ScanOptions> =
         activity.registerForActivityResult<ScanOptions, ScanIntentResult>(
             ScanContract(),
@@ -18,13 +28,14 @@ class QrScanner(activity: ComponentActivity) {
                 if (result.contents == null) {
                     Toast.makeText(activity, "Cancelled", Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(
-                        activity,
-                        "Scanned: " + result.contents,
-                        Toast.LENGTH_LONG
-                    ).show()
-                    if (result.contents.equals("matematicas")) {
-                        HintDialog(activity).show()
+                    if (result.contents in HINTS) {
+                        HintDialog(activity, result.contents).show()
+                    } else {
+                        Toast.makeText(
+                            activity,
+                            "Pista inválida. Prueba con un QR diferente",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
             })
