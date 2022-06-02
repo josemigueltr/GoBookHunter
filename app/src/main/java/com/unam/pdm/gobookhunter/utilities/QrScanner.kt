@@ -9,6 +9,9 @@ import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions
 import com.unam.pdm.gobookhunter.dialogs.HintDialog
 
+/**
+ * @deprecated - Reemplazada por QrHuntActivity
+ */
 class QrScanner(activity: ComponentActivity) {
 
     val MATEMATICAS = "matematicas"
