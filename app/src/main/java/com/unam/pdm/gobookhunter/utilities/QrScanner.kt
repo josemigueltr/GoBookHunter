@@ -16,10 +16,10 @@ class QrScanner(activity: ComponentActivity) {
     val FISICA = "fisica"
     val COMPUTACION = "computacion"
     val HEMEROTECA = "hemeroteca"
-
     val SOTANO = "sotano"
+    val TESORO = "tesoro"
 
-    val HINTS = listOf(MATEMATICAS, BIOLOGIA, FISICA, COMPUTACION, HEMEROTECA, SOTANO)
+    val HINTSLIST = listOf(MATEMATICAS, BIOLOGIA, FISICA, COMPUTACION, HEMEROTECA, SOTANO, TESORO)
 
     private val barcodeLauncher: ActivityResultLauncher<ScanOptions> =
         activity.registerForActivityResult<ScanOptions, ScanIntentResult>(
@@ -28,7 +28,7 @@ class QrScanner(activity: ComponentActivity) {
                 if (result.contents == null) {
                     Toast.makeText(activity, "Cancelled", Toast.LENGTH_LONG).show()
                 } else {
-                    if (result.contents in HINTS) {
+                    if (result.contents in HINTSLIST) {
                         HintDialog(activity, result.contents).show()
                     } else {
                         Toast.makeText(

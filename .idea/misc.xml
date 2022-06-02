@@ -3,23 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/danie/Documents/ciencias/moviles/GoBookHunter/app/src/main/res/drawable/button_red_background.xml" value="0.1235" />
-        <entry key="..\:/Users/danie/Documents/ciencias/moviles/GoBookHunter/app/src/main/res/drawable/button_white_background.xml" value="0.1235" />
-        <entry key="..\:/Users/danie/Documents/ciencias/moviles/GoBookHunter/app/src/main/res/drawable/reward_item_background.xml" value="0.1235" />
-        <entry key="..\:/Users/danie/Documents/ciencias/moviles/GoBookHunter/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/danie/Documents/ciencias/moviles/GoBookHunter/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/danie/Documents/ciencias/moviles/GoBookHunter/app/src/main/res/layout/activity_rewards.xml" value="0.3228346456692913" />
-        <entry key="..\:/Users/danie/Documents/ciencias/moviles/GoBookHunter/app/src/main/res/layout/activity_splash_screen.xml" value="0.31068840579710144" />
-        <entry key="..\:/Users/danie/Documents/ciencias/moviles/GoBookHunter/app/src/main/res/layout/dialog_hint.xml" value="0.25" />
-        <entry key="..\:/Users/danie/Documents/ciencias/moviles/GoBookHunter/app/src/main/res/layout/item_reward_list.xml" value="0.67" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.193" />
         <entry key="app/src/main/res/drawable/bg_pattern.xml" value="0.2685" />
+        <entry key="app/src/main/res/drawable/button_blue_background.xml" value="0.2655" />
+        <entry key="app/src/main/res/drawable/button_red_background.xml" value="0.19" />
+        <entry key="app/src/main/res/drawable/button_white_background.xml" value="0.19" />
         <entry key="app/src/main/res/drawable/custom_button.xml" value="0.2355" />
+        <entry key="app/src/main/res/drawable/hint_dialog.xml" value="0.2475" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_settings.xml" value="0.3475" />
+        <entry key="app/src/main/res/drawable/ic_user.xml" value="0.3475" />
         <entry key="app/src/main/res/drawable/oval_header.xml" value="0.187" />
+        <entry key="app/src/main/res/drawable/treasure_dialog.xml" value="0.2655" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_rewards.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/dialog_hint.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/hint_dialog_basement.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/hint_dialog_biology.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/hint_dialog_computer.xml" value="0.2604166666666667" />
+        <entry key="app/src/main/res/layout/hint_dialog_físicas.xml" value="0.2604166666666667" />
+        <entry key="app/src/main/res/layout/hint_dialog_newspaper.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/hint_dialog_treasure.xml" value="0.2604166666666667" />
+        <entry key="app/src/main/res/layout/hint_math.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_reward_list.xml" value="0.5" />
       </map>
     </option>
   </component>

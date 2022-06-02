@@ -14,6 +14,7 @@
     <color name="black_overlay">#66000000</color>
     <color name="tomato_red">#E46471</color>
     <color name="yellow">#FFBF45</color>
+    <color name="blue">#009CDF</color>
     <color name="background">#FFCC6A</color>
     <color name="backround_header">#FFFBE8</color>
     <color name="text_color">#334860</color>

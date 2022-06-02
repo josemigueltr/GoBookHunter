@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/CardBackground"
+        android:layout_width="320dp"
+        android:layout_height="600dp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/treasure_dialog" />
+
+    <Button
+        android:id="@+id/button_menu_principal"
+        android:layout_width="169dp"
+        android:layout_height="38dp"
+        android:background="@drawable/button_blue_background"
+        android:text="Menu principal"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.914" />
+
+    <Button
+        android:id="@+id/button_continuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_red_background"
+        android:text="Continuar"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/button_menu_principal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.972" />
+
+    <TextView
+        android:id="@+id/Pista"
+        android:layout_width="246dp"
+        android:layout_height="60dp"
+        android:text="Dale un vistazo a la sección de mis recompensas para ver tus puntos ganados y cambiarlos por premios."
+        android:textAlignment="center"
+        android:textColor="#AA6121"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
+        app:layout_constraintEnd_toEndOf="@+id/CardBackground"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/CardBackground"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.761" />
+
+    <TextView
+        android:id="@+id/puntos"
+        android:layout_width="90dp"
+        android:layout_height="32dp"
+        android:shadowColor="#FFFFFF"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="2"
+        android:text="500pts"
+        android:textAlignment="viewStart"
+        android:textColor="#EBA214"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
+        app:layout_constraintEnd_toEndOf="@+id/CardBackground"
+        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintStart_toStartOf="@+id/CardBackground"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.264" />
+
+    <ImageView
+        android:id="@+id/hintIcon"
+        android:layout_width="148dp"
+        android:layout_height="186dp"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
+        app:layout_constraintEnd_toEndOf="@+id/CardBackground"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/CardBackground"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.429"
+        app:srcCompat="@drawable/trophy" />
+
+    <ImageView
+        android:id="@+id/coin"
+        android:layout_width="38dp"
+        android:layout_height="39dp"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
+        app:layout_constraintEnd_toEndOf="@+id/CardBackground"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="@+id/CardBackground"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.265"
+        app:srcCompat="@drawable/money" />
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="271dp"
+        android:layout_height="127dp"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
+        app:layout_constraintEnd_toEndOf="@+id/CardBackground"
+        app:layout_constraintStart_toStartOf="@+id/CardBackground"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.065"
+        app:srcCompat="@drawable/treasure_found_title" />
+
+    <ImageView
+        android:id="@+id/you_win"
+        android:layout_width="224dp"
+        android:layout_height="102dp"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
+        app:layout_constraintEnd_toEndOf="@+id/CardBackground"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="@+id/CardBackground"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.638"
+        app:srcCompat="@drawable/you_win_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
