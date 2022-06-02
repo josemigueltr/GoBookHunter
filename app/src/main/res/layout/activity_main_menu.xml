@@ -8,25 +8,39 @@
     android:background="@color/background">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/bg_pattern"
+        android:cropToPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/oval_header"
         android:layout_width="match_parent"
         android:layout_height="417dp"
         android:adjustViewBounds="false"
         android:cropToPadding="true"
         android:src="@drawable/oval_header"
-        android:translationY="-10dp"
+        android:translationY="-28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="173dp"
-        android:layout_height="170dp"
+        android:id="@+id/logo"
+        android:layout_width="185dp"
+        android:layout_height="176dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/app_name"
         android:scaleType="fitCenter"
-        android:src="@drawable/logo"
+        android:src="@drawable/app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,28 +60,32 @@
 
     <ImageButton
         android:id="@+id/btn_rewards"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="327dp"
+        android:layout_height="175dp"
         android:background="#0000"
+        android:contentDescription="@string/mis_recompensas"
         android:scaleType="fitCenter"
         android:src="@drawable/mis_recompensas"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        android:contentDescription="@string/mis_recompensas" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.845" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginBottom="36dp"
-        android:text="@string/usuario"
         android:drawableStart="@drawable/ic_user"
+        android:drawablePadding="10dp"
         android:gravity="center_vertical"
-        android:drawablePadding="16dp"
+        android:text="@string/usuario"
+        android:textColor="#334860"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:layout_width="50dp"

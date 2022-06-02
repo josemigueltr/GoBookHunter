@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_red_background"
         android:text="Menu principal"
+        android:textColor="#FFFFFF"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,30 +36,49 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_red_background"
         android:text="Continuar"
+        android:textColor="#FFFFFF"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/button_menu_principal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/CardBackground"
-        app:layout_constraintVertical_bias="0.959" />
+        app:layout_constraintVertical_bias="0.972" />
 
     <TextView
         android:id="@+id/Pista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Esto es una pista"
+        android:layout_width="240dp"
+        android:layout_height="108dp"
+        android:text="Descubriste la zona de libros de matemáticas. Aquí encontrarás libros con muchas demostraciones que se suelen dejar como tarea al lector... Ah! Y alumnos llorando."
+        android:textAlignment="center"
         android:textColor="#8F7566"
         app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
         app:layout_constraintEnd_toEndOf="@+id/CardBackground"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/CardBackground"
-        app:layout_constraintTop_toTopOf="@+id/CardBackground" />
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.699" />
 
     <TextView
-        android:id="@+id/Title"
-        android:layout_width="222dp"
-        android:layout_height="111dp"
-        android:text="Encontraste una pista"
+        android:id="@+id/puntos"
+        android:layout_width="75dp"
+        android:layout_height="26dp"
+        android:text="100pts"
+        android:textAlignment="viewStart"
+        android:textColor="#EBA214"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
+        app:layout_constraintEnd_toEndOf="@+id/CardBackground"
+        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintStart_toStartOf="@+id/CardBackground"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.224" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="261dp"
+        android:layout_height="110dp"
+        android:text="Encontraste una ubicación"
         android:textAlignment="center"
         android:textColor="#8F7566"
         android:textSize="34sp"
@@ -68,5 +88,29 @@
         app:layout_constraintStart_toStartOf="@+id/CardBackground"
         app:layout_constraintTop_toTopOf="@+id/CardBackground"
         app:layout_constraintVertical_bias="0.063" />
+
+    <ImageView
+        android:id="@+id/hintIcon"
+        android:layout_width="148dp"
+        android:layout_height="186dp"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
+        app:layout_constraintEnd_toEndOf="@+id/CardBackground"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/CardBackground"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.383"
+        app:srcCompat="@drawable/math" />
+
+    <ImageView
+        android:id="@+id/coin"
+        android:layout_width="32dp"
+        android:layout_height="35dp"
+        app:layout_constraintBottom_toBottomOf="@+id/CardBackground"
+        app:layout_constraintEnd_toEndOf="@+id/CardBackground"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="@+id/CardBackground"
+        app:layout_constraintTop_toTopOf="@+id/CardBackground"
+        app:layout_constraintVertical_bias="0.212"
+        app:srcCompat="@drawable/money" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
