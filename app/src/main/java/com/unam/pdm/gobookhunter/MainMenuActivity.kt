@@ -1,37 +1,32 @@
 package com.unam.pdm.gobookhunter
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
-import com.journeyapps.barcodescanner.ScanContract
-import com.journeyapps.barcodescanner.ScanIntentResult
-import com.journeyapps.barcodescanner.ScanOptions
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.unam.pdm.gobookhunter.databinding.ActivityMainBinding
-import com.unam.pdm.gobookhunter.utilities.QrScanner
 
 
 class MainMenuActivity: AppCompatActivity()  {
     private  lateinit var binding: ActivityMainBinding
 
+    val CODIGO_SOLICITUD_CAMARA = 3
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main_menu);
-        val recorrido= findViewById<ImageButton>(R.id.imageButton)
 
-        val qrScanner = QrScanner.getInstance(this)
+        val recorrido = findViewById<ImageButton>(R.id.imageButton)
 
         recorrido.setOnClickListener{
-            val options = ScanOptions()
-            options.setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES)
-            options.setPrompt("Scan a barcode")
-            options.setBeepEnabled(false)
-            options.setBarcodeImageEnabled(true)
-            qrScanner.scann(options)
+            var intent = Intent(this, QrHuntActivity::class.java)
+            startActivity(intent)
         }
 
         findViewById<ImageButton>(R.id.btn_rewards).setOnClickListener {
@@ -39,4 +34,36 @@ class MainMenuActivity: AppCompatActivity()  {
             startActivity(intent)
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.CAMERA), CODIGO_SOLICITUD_CAMARA);
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<String?>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == CODIGO_SOLICITUD_CAMARA) {
+            // TODO Estos textos deberían ser recursos de cadena
+            // TODO Los textos también podrían ser más descriptivos
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(
+                    this, "Ahora puede escanear códigos QR",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Toast.makeText(
+                    this, "Necesita otorgar el permiso para usar la " +
+                            "cámara para poder usar la aplicación", Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
 }
