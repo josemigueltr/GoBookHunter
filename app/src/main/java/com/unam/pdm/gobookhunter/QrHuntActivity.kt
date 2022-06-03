@@ -3,6 +3,7 @@ package com.unam.pdm.gobookhunter
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -18,6 +19,8 @@ class QrHuntActivity : AppCompatActivity() {
 
     private lateinit var barcodeView: BarcodeView
 
+    private var pointsCounter = 0
+
     val MATEMATICAS = "matematicas"
     val BIOLOGIA = "biologia"
     val FISICA = "fisica"
@@ -25,6 +28,8 @@ class QrHuntActivity : AppCompatActivity() {
     val HEMEROTECA = "hemeroteca"
     val SOTANO = "sotano"
     val TESORO = "tesoro"
+
+    val POINTS_COUNTER_KEY = "com.unam.pdm.gobookhunter.POINTS_COUNTER"
 
     val HINTSLIST = listOf(
         MATEMATICAS, BIOLOGIA, FISICA, COMPUTACION, HEMEROTECA, SOTANO, TESORO
@@ -35,6 +40,7 @@ class QrHuntActivity : AppCompatActivity() {
             if (result.text == null) return@BarcodeCallback
             if (result.text in HINTSLIST) {
                 HintDialog(QrHuntActivity@ this, result.text).show()
+                pointsCounter += 10
             } else {
                 Toast.makeText(
                     QrHuntActivity@ this,
@@ -60,6 +66,16 @@ class QrHuntActivity : AppCompatActivity() {
         var formatoQr = Arrays.asList(BarcodeFormat.QR_CODE)
         barcodeView.setDecoderFactory(DefaultDecoderFactory(formatoQr))
         barcodeView.decodeContinuous(eventoEscaneo)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        outState.putInt(POINTS_COUNTER_KEY, pointsCounter)
+        super.onSaveInstanceState(outState, outPersistentState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        pointsCounter = savedInstanceState.getInt(POINTS_COUNTER_KEY)
     }
 
     override fun onResume() {
