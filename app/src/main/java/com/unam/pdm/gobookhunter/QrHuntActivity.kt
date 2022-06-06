@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -12,6 +13,7 @@ import com.journeyapps.barcodescanner.BarcodeCallback
 import com.journeyapps.barcodescanner.BarcodeView
 import com.journeyapps.barcodescanner.DefaultDecoderFactory
 import com.unam.pdm.gobookhunter.dialogs.HintDialog
+import com.unam.pdm.gobookhunter.utilities.DataPersistence
 import java.util.*
 
 
@@ -35,15 +37,24 @@ class QrHuntActivity : AppCompatActivity() {
         MATEMATICAS, BIOLOGIA, FISICA, COMPUTACION, HEMEROTECA, SOTANO, TESORO
     )
 
+    val hintsFound = arrayOf(false, false, false, false, false, false, false)
+
     private val eventoEscaneo =
         BarcodeCallback { result ->
-            if (result.text == null) return@BarcodeCallback
+            val hintIndex = HINTSLIST.indexOf(result.text)
+            if (result.text == null || hintsFound[hintIndex]) return@BarcodeCallback
             if (result.text in HINTSLIST) {
-                HintDialog(QrHuntActivity@ this, result.text).show()
-                pointsCounter += 10
+                hintsFound[hintIndex] = true
+                HintDialog(this, result.text).show()
+                val pointsEarned = if (result.text == TESORO) 500 else 100
+                pointsCounter += pointsEarned
+                val persistence = DataPersistence(this)
+                val savedScore = Integer.parseInt(persistence.read(persistence.SCORE))
+                persistence.save(persistence.SCORE,"" + (savedScore + pointsEarned))
+                findViewById<TextView>(R.id.points_tv).setText(""+pointsCounter)
             } else {
                 Toast.makeText(
-                    QrHuntActivity@ this,
+                    this,
                     "Pista inválida. Prueba con un QR diferente",
                     Toast.LENGTH_SHORT
                 ).show()
