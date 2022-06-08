@@ -12,7 +12,6 @@ class HintDialog(val activity: ComponentActivity, val hint: String): Dialog(acti
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        Toast.makeText(activity, hint, Toast.LENGTH_LONG).show()
         when (hint) {
             "matematicas" -> setContentView(R.layout.hint_dialog_math)
             "biologia" -> setContentView(R.layout.hint_dialog_biology)
