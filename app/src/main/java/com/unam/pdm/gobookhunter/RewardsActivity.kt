@@ -13,7 +13,7 @@ class RewardsActivity : AppCompatActivity() {
 
         // Mostramos score guardado
         val persistence = DataPersistence(applicationContext)
-        val score = Integer.parseInt(persistence.read(persistence.SCORE))
+        val score = Integer.parseInt(persistence.read(persistence.SCORE, "0"))
         findViewById<TextView>(R.id.score)
             .setText("${score}")
 

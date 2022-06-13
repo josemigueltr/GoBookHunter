@@ -46,6 +46,15 @@ class QrHuntActivity : AppCompatActivity() {
             // Obtiene el index de la pista dentro de la lista de pistas posibles.
             val hintIndex = HINTSLIST.indexOf(result.text)
 
+            // Si leo un QR inválido, muestro un mensaje
+            if (hintIndex == -1) {
+                Toast.makeText(
+                    this,
+                    "Pista inválida. Prueba con un QR diferente",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
             // Si el resultado del escaneo es nulo o la pista ya había sido escaneada regresa.
             if (result.text == null || hintsFound[hintIndex]) return@BarcodeCallback
 
@@ -61,7 +70,7 @@ class QrHuntActivity : AppCompatActivity() {
 
                 // Guarda el puntuaje en la persistencia de datos.
                 val persistence = DataPersistence(this)
-                val savedScore = Integer.parseInt(persistence.read(persistence.SCORE))
+                val savedScore = Integer.parseInt(persistence.read(persistence.SCORE, "0") )
                 persistence.save(persistence.SCORE,"" + (savedScore + pointsEarned))
 
                 // Actualiza el dialogo de la pista actual
@@ -81,15 +90,15 @@ class QrHuntActivity : AppCompatActivity() {
     fun updateCurrentHintDialog(hintName: String){
         when (hintName) {
             "matematicas" -> currentHint =
-                "La siguiente pista es biologia"
+                "Piensa en tu animal favorito. Seguramente en esta zona encontrarás un libro sobre él."
             "biologia" -> currentHint =
-                "La siguiente pista es física"
+                "A toda acción, corresponde una reacción. Si lo piensas bien, llegarás a esta ubicación."
             "fisica" -> currentHint =
-                "La siguiente pista es computación"
+                "Sólo hay 10 tipos de personas en este mundo, las que entienden binario y las que no. Adivina qué zona es."
             "computacion" -> currentHint =
-                "La siguiente pista es hemeroteca"
+                "Dicen que en esta zona encuentras los chismes hasta en papel. Te suena muy difícil? hablo de revistas."
             "hemeroteca" -> currentHint =
-                "La siguiente pista es sótano"
+                "Baja baja baja hasta el fondo sin parar. Lo sabrás cuando veas estudiantes trabajar."
             "sotano" -> currentHint =
                 "Dicen que hay un tesoro oculto por esta zona ¿Podrás encontrarlo?"
             "tesoro" -> currentHint =
@@ -113,7 +122,9 @@ class QrHuntActivity : AppCompatActivity() {
             return
         }
         setContentView(R.layout.activity_qr_hunt)
-        findViewById<TextView>(R.id.points).text = "0"
+        val persistence = DataPersistence(this)
+        pointsCounter = Integer.parseInt(persistence.read(persistence.SCORE, "0"))
+        findViewById<TextView>(R.id.points).text = ""+pointsCounter
         barcodeView = findViewById(R.id.vista_escaner_bv)
         var formatoQr = Arrays.asList(BarcodeFormat.QR_CODE)
         barcodeView.setDecoderFactory(DefaultDecoderFactory(formatoQr))
