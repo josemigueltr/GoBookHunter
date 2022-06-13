@@ -11,9 +11,9 @@ class DataPersistence(private val context: Context ) {
         preferences.edit().putString(propertyName, value).apply()
     }
 
-    fun read( propertyName: String): String {
+    fun read(propertyName: String, faultValue: String): String {
         val preferences = this.context.getSharedPreferences( "GoBookHunterPreferences", Context.MODE_PRIVATE)
-        return preferences.getString(propertyName, "")!!
+        return preferences.getString(propertyName, faultValue)!!
     }
     
 }

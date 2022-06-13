@@ -6,6 +6,7 @@ import android.view.Window
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import com.unam.pdm.gobookhunter.QrHuntActivity
 import com.unam.pdm.gobookhunter.R
 
 class HintDialog(val activity: ComponentActivity, val hint: String): Dialog(activity) {
@@ -32,6 +33,10 @@ class HintDialog(val activity: ComponentActivity, val hint: String): Dialog(acti
 
         findViewById<Button>(R.id.button_menu_principal).setOnClickListener {
             this@HintDialog.dismiss()
+
+            if (activity is QrHuntActivity) {
+                activity.finish()
+            }
         }
     }
 }

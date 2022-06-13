@@ -85,7 +85,7 @@
         android:paddingBottom="8dp"
         android:shadowColor="@color/black"
         android:shadowRadius="0"
-        android:text="El verdadero valor de las cosas radica en su Historia. Dirígete a la sección de libros históricos"
+        android:text="Me gustan los polinomios, pero solo hasta cierto grado. ¿Sabes a que área me refiero?"
         android:textColor="#334860"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
