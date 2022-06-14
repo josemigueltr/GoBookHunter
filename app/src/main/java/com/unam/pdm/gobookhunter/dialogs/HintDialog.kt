@@ -9,7 +9,19 @@ import androidx.activity.ComponentActivity
 import com.unam.pdm.gobookhunter.QrHuntActivity
 import com.unam.pdm.gobookhunter.R
 
+/**
+ * Clase que hereda de [Dialog] para mostrar los hints encontrados y el tesoro.
+ *
+ * @property activity actividad que invocó el diálogo
+ * @property hint el hint a mostrar
+ * @constructor despliega el diálogo correspondiente a los parámetros dados.
+ */
 class HintDialog(val activity: ComponentActivity, val hint: String): Dialog(activity) {
+
+    /**
+     * Inicializa el diálogo. Carga un layout dependiendo del *hint* dado y agrega
+     * acciones a los botones del layout para navegación.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -23,9 +35,6 @@ class HintDialog(val activity: ComponentActivity, val hint: String): Dialog(acti
             "tesoro" -> setContentView(R.layout.hint_dialog_treasure)
             else -> { setContentView(R.layout.hint_dialog)}
         }
-
-
-        //findViewById<TextView>(R.id.Pista).text = "Encontraste una pista: " + this.hint
 
         findViewById<Button>(R.id.button_continuar).setOnClickListener {
             this@HintDialog.dismiss()
