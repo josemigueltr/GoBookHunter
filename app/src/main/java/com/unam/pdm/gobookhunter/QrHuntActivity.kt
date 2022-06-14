@@ -175,12 +175,17 @@ class QrHuntActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.current_hint_dialog).text = currentHint;
     }
 
-    
+    /**
+     * Reactiva la vista de escaneo QR cuando la actividad es reanudada.
+      */
     override fun onResume() {
         super.onResume()
         barcodeView.resume()
     }
-
+    
+    /**
+     * Desactiva la vista de escaneo QR cuando la actividad es pausada.
+      */
     override fun onPause() {
         barcodeView.pause()
         super.onPause()
