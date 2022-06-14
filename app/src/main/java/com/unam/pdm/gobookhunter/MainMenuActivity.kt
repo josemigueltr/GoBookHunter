@@ -9,23 +9,27 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.unam.pdm.gobookhunter.databinding.ActivityMainBinding
 
 
+/**
+ * Menú prinipal. Muestra botones que inician las demás actividades de la app.
+ */
 class MainMenuActivity: AppCompatActivity()  {
-    private  lateinit var binding: ActivityMainBinding
 
+    // Constante para solicitar los permisos de cámara
     val CODIGO_SOLICITUD_CAMARA = 3
 
+    /**
+     * Inicializa la app. Agrega acciones a los botones para completar la navegación
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_main_menu)
 
         val recorrido = findViewById<ImageButton>(R.id.imageButton)
 
         recorrido.setOnClickListener{
-            var intent = Intent(this, QrHuntActivity::class.java)
+            val intent = Intent(this, QrHuntActivity::class.java)
             startActivity(intent)
         }
 
@@ -35,6 +39,10 @@ class MainMenuActivity: AppCompatActivity()  {
         }
     }
 
+    /**
+     * Pide permisos para usar la cámara del teléfono al momento de mostrar la actividad,
+     * en caso de que aún no tengamos permisos.
+     */
     override fun onResume() {
         super.onResume()
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
@@ -44,6 +52,11 @@ class MainMenuActivity: AppCompatActivity()  {
         }
     }
 
+    /**
+     * Recibe el resultado de la solicitud de permisos. Si el usuario otorga permisos para
+     * usar la camara, muestra un mensaje de confirmación. En caso contrario, muestra una
+     * advertencia.
+     */
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String?>,
         grantResults: IntArray

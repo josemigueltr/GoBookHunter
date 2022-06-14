@@ -16,7 +16,19 @@ import com.unam.pdm.gobookhunter.dialogs.HintDialog
 import com.unam.pdm.gobookhunter.utilities.DataPersistence
 import java.util.*
 
-
+/**
+ * Clase que muestra la función de lector QR, así como datos relacionados a la búsqueda del tesoro
+ *
+ * @property bardcodeView el lector QR
+ * @property pointsCounter contador de puntos ganados hasta el momento
+ * @property currentHint hint actual encontrado
+ * @property POINTS_COUNTER_KEY ubicación para guardar [pointsCounter] en caché
+ * @property CURRENT_HINT_KEY ubicación para guardar [currentHint] en caché
+ * @property HINTSLIST lista de hints a encontrar, en orden de búsqueda
+ * @property hintsFound arreglo que guarda si un hint ha sido encontrado según su índice en
+ * [HINTSLIST]
+ * @property eventoEscaneo acción que se ejecuta cuando un QR es leído
+ */
 class QrHuntActivity : AppCompatActivity() {
 
     private lateinit var barcodeView: BarcodeView
@@ -87,6 +99,10 @@ class QrHuntActivity : AppCompatActivity() {
             }
         }
 
+    /**
+     * Actualiza el hint a mostrar en la actividad.
+     * @param hintName el nombre del hint encontrado.
+     */
     fun updateCurrentHintDialog(hintName: String){
         when (hintName) {
             "matematicas" -> currentHint =
@@ -110,6 +126,9 @@ class QrHuntActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.current_hint_dialog).text = currentHint;
     }
 
+    /**
+     * Inicializa la app. Muestra los datos necesarios para la búsqueda e inicializa el lector QR
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
@@ -131,12 +150,18 @@ class QrHuntActivity : AppCompatActivity() {
         barcodeView.decodeContinuous(eventoEscaneo)
     }
 
+    /**
+     * Guarda los datos en caché para mostrar cuando la actividad se encuentre visible de nuevo.
+     */
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         outState.putInt(POINTS_COUNTER_KEY, pointsCounter)
         outState.putString(CURRENT_HINT_KEY, currentHint)
         super.onSaveInstanceState(outState, outPersistentState)
     }
 
+    /**
+     * Reestablece los valores guardados en caché y los muestra en la actividad
+      */
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         pointsCounter = savedInstanceState.getInt(POINTS_COUNTER_KEY)
@@ -150,11 +175,17 @@ class QrHuntActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.current_hint_dialog).text = currentHint;
     }
 
+    /**
+     * Reactiva la vista de escaneo QR cuando la actividad es reanudada.
+      */
     override fun onResume() {
         super.onResume()
         barcodeView.resume()
     }
-
+    
+    /**
+     * Desactiva la vista de escaneo QR cuando la actividad es pausada.
+      */
     override fun onPause() {
         barcodeView.pause()
         super.onPause()
